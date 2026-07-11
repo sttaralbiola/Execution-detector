@@ -1,0 +1,12 @@
+{
+  "name": "roblox-script-tracker",
+  "version": "1.0.0",
+  "description": "Tracker for script executions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

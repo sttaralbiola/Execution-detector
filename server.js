@@ -4,10 +4,15 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// Dito mase-save yung mga nag-execute (Memory Database)
+// UPTIMEROBOT PING / HEALTH CHECK
+app.get('/', (req, res) => {
+    res.status(200).send('Server is alive!');
+});
+
+// MEMORY DATABASE (Dito nase-save yung mga gumamit ng script mo)
 let executedUsers = {};
 
-// Roblox Script magse-send dito kapag na-execute
+// ROBLOX SCRIPT SENDS DATA DITO KAPAG NA-EXECUTE
 app.post('/execute', (req, res) => {
     const { userId, username } = req.body;
     if (userId && username) {
@@ -23,7 +28,7 @@ app.post('/execute', (req, res) => {
     }
 });
 
-// Admin Command (/list) kukuha ng data dito
+// ADMIN COMMAND (/list) KUKUHA NG DATA DITO
 app.get('/list', (req, res) => {
     res.status(200).json(executedUsers);
 });
